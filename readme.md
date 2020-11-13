@@ -1,6 +1,6 @@
 # suspense-data-loader
 
-Experimental.
+Experimental. Does not support SSR.
 
 # API
 
