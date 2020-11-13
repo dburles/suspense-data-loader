@@ -9,7 +9,7 @@ Experimental. Does not support SSR.
 - [function createDataCache](#function-createdatacache)
 - [function useDataLoader](#function-usedataloader)
 - [function usePreloadedData](#function-usepreloadeddata)
-- [constant GraphQLContext](#constant-graphqlcontext)
+- [constant DataCacheContext](#constant-datacachecontext)
 - [type CacheKey](#type-cachekey)
 - [type DataCache](#type-datacache)
 - [type UseDataLoaderAPI](#type-usedataloaderapi)
@@ -54,7 +54,7 @@ Access preloaded data, suspends if data is unavailable.
 
 * * *
 
-## constant GraphQLContext
+## constant DataCacheContext
 
 A React context.
 
