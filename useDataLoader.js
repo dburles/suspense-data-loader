@@ -12,6 +12,8 @@ import serializeKey from './lib/serializeKey.js';
 export default function useDataLoader(key) {
   const dataCache = useContext(DataCacheContext);
   const [reference, setReference] = useState(dataCache.get(key));
+  const serializedKey = serializeKey(key);
+  const keyRef = useRef(key);
 
   /**
    * Loads data for this cache reference.
@@ -21,14 +23,13 @@ export default function useDataLoader(key) {
    * @param {Function} asyncFn An asynchronous function.
    */
   function load(asyncFn) {
-    setReference(dataCache.load(key, asyncFn));
+    setReference(dataCache.load(keyRef.current, asyncFn));
   }
 
   const loadRef = useRef(load);
 
-  const serializedKey = serializeKey(key);
-
   useEffect(() => {
+    keyRef.current = key;
     loadRef.current = load;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [serializedKey]);
