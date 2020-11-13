@@ -1,6 +1,5 @@
 import { useEffect, useReducer } from 'react';
 import { REJECTED, RESOLVED } from './lib/dataLoader.js';
-import useIsMounted from './lib/useIsMounted.js';
 
 /**
  * Access preloaded data, suspends if data is unavailable.
@@ -14,15 +13,12 @@ export default function usePreloadedData(reference) {
   const [, forceUpdate] = useReducer((x) => {
     return x + 1;
   }, 0);
-  const isMounted = useIsMounted();
 
   useEffect(() => {
     return reference.onUpdate(() => {
-      if (isMounted()) {
-        forceUpdate();
-      }
+      forceUpdate();
     });
-  });
+  }, [reference]);
 
   useEffect(() => {
     if (reference.loadOnMount) {
