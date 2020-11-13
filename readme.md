@@ -11,7 +11,6 @@ Experimental. Does not support SSR.
 - [function usePreloadedData](#function-usepreloadeddata)
 - [constant GraphQLContext](#constant-graphqlcontext)
 - [type CacheKey](#type-cachekey)
-- [type CreateSubscriptionAPI](#type-createsubscriptionapi)
 - [type DataCache](#type-datacache)
 - [type UseDataLoaderAPI](#type-usedataloaderapi)
 
@@ -71,19 +70,6 @@ A React context.
 ## type CacheKey
 
 **Type:** string | Array&lt;string | number>
-
-* * *
-
-## type CreateSubscriptionAPI
-
-The API provided by the useAuthentication hook.
-
-**Type:** object
-
-| Property    | Type     | Description          |
-| :---------- | :------- | :------------------- |
-| `notify`    | Function | Send an event.       |
-| `subscribe` | Function | Subscribe to events. |
 
 * * *
 
