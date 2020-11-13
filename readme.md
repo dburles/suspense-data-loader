@@ -12,8 +12,9 @@ Experimental. Does not support SSR.
 - [constant DataCacheContext](#constant-datacachecontext)
 - [type CacheKey](#type-cachekey)
 - [type DataCache](#type-datacache)
-- [type Load](#type-load)
+- [type DataCacheLoad](#type-datacacheload)
 - [type UseDataLoaderAPI](#type-usedataloaderapi)
+- [type UseDataLoaderLoad](#type-usedataloaderload)
 - [type UsePreloadedDataOptions](#type-usepreloadeddataoptions)
 
 ## function createDataCache
@@ -82,17 +83,17 @@ A dataCache object.
 
 **Type:** object
 
-| Property | Type               | Description             |
-| :------- | :----------------- | :---------------------- |
-| `cache`  | Map                | The cache.              |
-| `get`    | Function           | Internal API.           |
-| `set`    | Function           | Internal API.           |
-| `load`   | [Load](#type-load) | Load asynchronous data. |
-| `reset`  | Function           | Resets the cache.       |
+| Property | Type                                 | Description             |
+| :------- | :----------------------------------- | :---------------------- |
+| `cache`  | Map                                  | The cache.              |
+| `get`    | Function                             | Internal API.           |
+| `set`    | Function                             | Internal API.           |
+| `load`   | [DataCacheLoad](#type-datacacheload) | Load asynchronous data. |
+| `reset`  | Function                             | Resets the cache.       |
 
 * * *
 
-## type Load
+## type DataCacheLoad
 
 **Type:** function
 
@@ -109,10 +110,20 @@ The useDataLoader API.
 
 **Type:** Array
 
-| Property | Type               | Description                          |
-| :------- | :----------------- | :----------------------------------- |
-| `0`      | CacheReference     | The cache reference.                 |
-| `1`      | [Load](#type-load) | Loads data for this cache reference. |
+| Property | Type                                         | Description                          |
+| :------- | :------------------------------------------- | :----------------------------------- |
+| `0`      | CacheReference                               | The cache reference.                 |
+| `1`      | [UseDataLoaderLoad](#type-usedataloaderload) | Loads data for this cache reference. |
+
+* * *
+
+## type UseDataLoaderLoad
+
+**Type:** function
+
+| Parameter | Type     | Description                        |
+| :-------- | :------- | :--------------------------------- |
+| `asyncFn` | function | A function that returns a Promise. |
 
 * * *
 

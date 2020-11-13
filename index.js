@@ -6,9 +6,16 @@
 
 /**
  * @kind typedef
- * @name Load
+ * @name DataCacheLoad
  * @type {function}
  * @param {CacheKey} key A cache key.
+ * @param {function} asyncFn A function that returns a Promise.
+ */
+
+/**
+ * @kind typedef
+ * @name UseDataLoaderLoad
+ * @type {function}
  * @param {function} asyncFn A function that returns a Promise.
  */
 
@@ -20,7 +27,7 @@
  * @prop {Map} cache The cache.
  * @prop {Function} get Internal API.
  * @prop {Function} set Internal API.
- * @prop {Load} load Load asynchronous data.
+ * @prop {DataCacheLoad} load Load asynchronous data.
  * @prop {Function} reset Resets the cache.
  */
 

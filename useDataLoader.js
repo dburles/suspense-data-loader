@@ -8,7 +8,7 @@ import serializeKey from './lib/serializeKey.js';
  * @name UseDataLoaderAPI
  * @type {Array}
  * @prop {CacheReference} 0 The cache reference.
- * @prop {Load} 1 Loads data for this cache reference.
+ * @prop {UseDataLoaderLoad} 1 Loads data for this cache reference.
  */
 
 /**
@@ -25,13 +25,6 @@ export default function useDataLoader(key) {
   const keyRef = useRef(key);
   const loadRef = useRef(load);
 
-  /**
-   * Loads data for this cache reference.
-   * @ignore
-   * @kind function
-   * @name load
-   * @param {Function} asyncFn An asynchronous function.
-   */
   function load(asyncFn) {
     setReference(dataCache.load(keyRef.current, asyncFn));
   }
