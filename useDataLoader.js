@@ -14,6 +14,7 @@ export default function useDataLoader(key) {
   const [reference, setReference] = useState(dataCache.get(key));
   const serializedKey = serializeKey(key);
   const keyRef = useRef(key);
+  const loadRef = useRef(load);
 
   /**
    * Loads data for this cache reference.
@@ -25,8 +26,6 @@ export default function useDataLoader(key) {
   function load(asyncFn) {
     setReference(dataCache.load(keyRef.current, asyncFn));
   }
-
-  const loadRef = useRef(load);
 
   useEffect(() => {
     keyRef.current = key;
