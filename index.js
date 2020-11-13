@@ -10,14 +10,15 @@
  * @name DataCache
  * @type {object}
  * @prop {Map} cache The cache.
- * @prop {Function} get Gets a cache Reference.
- * @prop {Function} set
- * @prop {Function} load
- * @prop {Function} reset
+ * @prop {Function} get Internal API.
+ * @prop {Function} set Internal API.
+ * @prop {Function} load Load asynchronous data.
+ * @prop {Function} reset Resets the cache.
  */
 
 /**
  * A cache reference object.
+ * @ignore
  * @kind typedef
  * @name CacheReference
  * @type {object}
@@ -34,7 +35,7 @@
  * @name UseDataLoaderAPI
  * @type {Array}
  * @prop {CacheReference} 0 The cache reference.
- * @prop {Function} 1 Load function.
+ * @prop {Function} 1 Loads data for this cache reference.
  */
 
 export { default as createDataCache } from './createDataCache.js';

@@ -15,6 +15,7 @@ export default function useDataLoader(key) {
 
   /**
    * Loads data for this cache reference.
+   * @ignore
    * @kind function
    * @name load
    * @param {Function} asyncFn An asynchronous function.
