@@ -3,6 +3,15 @@ import DataCacheContext from './DataCacheContext.js';
 import serializeKey from './lib/serializeKey.js';
 
 /**
+ * The useDataLoader API.
+ * @kind typedef
+ * @name UseDataLoaderAPI
+ * @type {Array}
+ * @prop {CacheReference} 0 The cache reference.
+ * @prop {Load} 1 Loads data for this cache reference.
+ */
+
+/**
  * React hook that returns a cache reference and load function for a specified cache key.
  * @kind function
  * @name useDataLoader

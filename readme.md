@@ -12,7 +12,9 @@ Experimental. Does not support SSR.
 - [constant DataCacheContext](#constant-datacachecontext)
 - [type CacheKey](#type-cachekey)
 - [type DataCache](#type-datacache)
+- [type Load](#type-load)
 - [type UseDataLoaderAPI](#type-usedataloaderapi)
+- [type UsePreloadedDataOptions](#type-usepreloadeddataoptions)
 
 ## function createDataCache
 
@@ -46,9 +48,10 @@ React hook that returns a cache reference and load function for a specified cach
 
 Access preloaded data, suspends if data is unavailable.
 
-| Parameter   | Type           | Description        |
-| :---------- | :------------- | :----------------- |
-| `reference` | CacheReference | A cache reference. |
+| Parameter   | Type                                                     | Description                |
+| :---------- | :------------------------------------------------------- | :------------------------- |
+| `reference` | CacheReference                                           | A cache reference.         |
+| `options`   | [UsePreloadedDataOptions](#type-usepreloadeddataoptions) | User configurable options. |
 
 **Returns:** \* — The cached value
 
@@ -79,13 +82,24 @@ A dataCache object.
 
 **Type:** object
 
-| Property | Type     | Description             |
-| :------- | :------- | :---------------------- |
-| `cache`  | Map      | The cache.              |
-| `get`    | Function | Internal API.           |
-| `set`    | Function | Internal API.           |
-| `load`   | Function | Load asynchronous data. |
-| `reset`  | Function | Resets the cache.       |
+| Property | Type               | Description             |
+| :------- | :----------------- | :---------------------- |
+| `cache`  | Map                | The cache.              |
+| `get`    | Function           | Internal API.           |
+| `set`    | Function           | Internal API.           |
+| `load`   | [Load](#type-load) | Load asynchronous data. |
+| `reset`  | Function           | Resets the cache.       |
+
+* * *
+
+## type Load
+
+**Type:** function
+
+| Parameter | Type                       | Description                        |
+| :-------- | :------------------------- | :--------------------------------- |
+| `key`     | [CacheKey](#type-cachekey) | A cache key.                       |
+| `asyncFn` | function                   | A function that returns a Promise. |
 
 * * *
 
@@ -95,7 +109,19 @@ The useDataLoader API.
 
 **Type:** Array
 
-| Property | Type           | Description                          |
-| :------- | :------------- | :----------------------------------- |
-| `0`      | CacheReference | The cache reference.                 |
-| `1`      | Function       | Loads data for this cache reference. |
+| Property | Type               | Description                          |
+| :------- | :----------------- | :----------------------------------- |
+| `0`      | CacheReference     | The cache reference.                 |
+| `1`      | [Load](#type-load) | Loads data for this cache reference. |
+
+* * *
+
+## type UsePreloadedDataOptions
+
+usePreloadedData Options
+
+**Type:** object
+
+| Property        | Type    | Description                 |
+| :-------------- | :------ | :-------------------------- |
+| `reloadOnMount` | boolean | Disable reloading on mount. |

@@ -5,6 +5,14 @@
  */
 
 /**
+ * @kind typedef
+ * @name Load
+ * @type {function}
+ * @param {CacheKey} key A cache key.
+ * @param {function} asyncFn A function that returns a Promise.
+ */
+
+/**
  * A dataCache object.
  * @kind typedef
  * @name DataCache
@@ -12,7 +20,7 @@
  * @prop {Map} cache The cache.
  * @prop {Function} get Internal API.
  * @prop {Function} set Internal API.
- * @prop {Function} load Load asynchronous data.
+ * @prop {Load} load Load asynchronous data.
  * @prop {Function} reset Resets the cache.
  */
 
@@ -22,20 +30,11 @@
  * @kind typedef
  * @name CacheReference
  * @type {object}
- * @prop {boolean} loadOnMount If this reference has mounted once before, we trigger stale-while-revalidate.
+ * @prop {boolean} loadOnMount If this reference has mounted once before, we trigger stale-while-revalidate, unless reloadOnMount = false.
  * @prop {CacheKey} key The cache key.
  * @prop {Function} asyncFn User provided async function.
  * @prop {Function} load Calls the async function and loads data.
  * @prop {Function} onUpdate Subscribe to data events.
- */
-
-/**
- * The useDataLoader API.
- * @kind typedef
- * @name UseDataLoaderAPI
- * @type {Array}
- * @prop {CacheReference} 0 The cache reference.
- * @prop {Function} 1 Loads data for this cache reference.
  */
 
 export { default as createDataCache } from './createDataCache.js';
