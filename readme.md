@@ -13,6 +13,7 @@ Experimental. Does not support SSR.
 - [type CacheKey](#type-cachekey)
 - [type DataCache](#type-datacache)
 - [type DataCacheLoad](#type-datacacheload)
+- [type DataCachePreload](#type-datacachepreload)
 - [type UseDataLoaderAPI](#type-usedataloaderapi)
 - [type UseDataLoaderLoad](#type-usedataloaderload)
 - [type UsePreloadedDataOptions](#type-usepreloadeddataoptions)
@@ -73,6 +74,8 @@ A React context.
 
 ## type CacheKey
 
+The cache key.
+
 **Type:** string | Array&lt;string | number>
 
 * * *
@@ -94,6 +97,21 @@ A dataCache object.
 * * *
 
 ## type DataCacheLoad
+
+Loads data into the cache.
+
+**Type:** function
+
+| Parameter | Type                       | Description                        |
+| :-------- | :------------------------- | :--------------------------------- |
+| `key`     | [CacheKey](#type-cachekey) | A cache key.                       |
+| `asyncFn` | function                   | A function that returns a Promise. |
+
+* * *
+
+## type DataCachePreload
+
+Returns cached entry if found, otherwise calls asyncFn and loads data into the cache.
 
 **Type:** function
 
@@ -118,6 +136,8 @@ The useDataLoader API.
 * * *
 
 ## type UseDataLoaderLoad
+
+Loads data into this cache reference.
 
 **Type:** function
 
