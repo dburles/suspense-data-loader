@@ -35,11 +35,7 @@ export default function createDataCache(userOptions = defaultOptions) {
     },
 
     preload(key, asyncFn) {
-      const reference = dataCache.get(key);
-      if (reference) {
-        return reference;
-      }
-      return dataCache.load(key, asyncFn);
+      return dataCache.get(key) || dataCache.load(key, asyncFn);
     },
 
     load(key, asyncFn) {
