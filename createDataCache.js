@@ -50,18 +50,15 @@ export default function createDataCache(userOptions = defaultOptions) {
       });
     },
     find(predicateOrKey) {
-      let result;
       for (const reference of dataCache.values()) {
         if (
           (typeof predicateOrKey === 'function' &&
             predicateOrKey(reference.key)) ||
           predicateOrKey === reference.key
         ) {
-          result = reference;
-          break;
+          return reference;
         }
       }
-      return result;
     },
     subscription,
     onUpdate: subscription.subscribe,
