@@ -1,3 +1,4 @@
+import createSubscription from './lib/createSubscription.js';
 import dataLoader from './lib/dataLoader.js';
 import serializeKey from './lib/serializeKey.js';
 
@@ -17,13 +18,13 @@ export default function createDataCache(userOptions = defaultOptions) {
     ...userOptions,
   };
 
+  const subscription = createSubscription();
+
   const dataCache = {
     cache: new Map(),
-
     get(key) {
       return dataCache.cache.get(serializeKey(key));
     },
-
     set(key, reference) {
       dataCache.cache.set(serializeKey(key), reference);
       if (dataCache.cache.size > options.maxEntries) {
@@ -33,7 +34,6 @@ export default function createDataCache(userOptions = defaultOptions) {
         }
       }
     },
-
     async preload(key, asyncFn) {
       return new Promise((resolve) => {
         if (dataCache.get(key)) {
@@ -42,7 +42,6 @@ export default function createDataCache(userOptions = defaultOptions) {
         dataCache.load(key, asyncFn).then(resolve);
       });
     },
-
     async load(key, asyncFn) {
       return new Promise((resolve) => {
         dataLoader(key, asyncFn, dataCache).load((reference) => {
@@ -50,7 +49,21 @@ export default function createDataCache(userOptions = defaultOptions) {
         });
       });
     },
-
+    find(predicateOrKey) {
+      let result;
+      dataCache.forEach((reference) => {
+        if (
+          (typeof predicateOrKey === 'function' &&
+            predicateOrKey(reference.key)) ||
+          predicateOrKey === reference.key
+        ) {
+          result = reference;
+        }
+      });
+      return result;
+    },
+    subscription,
+    onUpdate: subscription.subscribe,
     reset() {
       dataCache.cache = new Map();
     },
