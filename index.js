@@ -15,6 +15,14 @@
  */
 
 /**
+ * @kind typedef
+ * @name SubscriptionSubscribe
+ * @type {Function}
+ * @param {Function} callback A function to call whenever an event occurs.
+ * @returns {Function} Unsubscribe.
+ */
+
+/**
  * Returns cached entry if found, otherwise calls asyncFn and loads data into the cache.
  * @kind typedef
  * @name DataCachePreload
@@ -39,7 +47,11 @@
  * @prop {Map} cache The cache.
  * @prop {Function} get Internal API.
  * @prop {Function} set Internal API.
+ * @prop {CreateSubscriptionAPI} subscription Internal API.
+ * @prop {DataCachePreload} preload Preload asynchronous data.
  * @prop {DataCacheLoad} load Load asynchronous data.
+ * @prop {string|Function} find Find references by key, takes a string or predicate function.
+ * @prop {SubscriptionSubscribe} onChange Called whenever cache is updated. First argument is key of updated reference.
  * @prop {Function} reset Resets the cache.
  */
 

@@ -14,6 +14,7 @@ Experimental. Does not support SSR.
 - [type DataCache](#type-datacache)
 - [type DataCacheLoad](#type-datacacheload)
 - [type DataCachePreload](#type-datacachepreload)
+- [type SubscriptionSubscribe](#type-subscriptionsubscribe)
 - [type UseDataLoaderAPI](#type-usedataloaderapi)
 - [type UseDataLoaderLoad](#type-usedataloaderload)
 - [type UsePreloadedDataOptions](#type-usepreloadeddataoptions)
@@ -86,13 +87,17 @@ A dataCache object.
 
 **Type:** object
 
-| Property | Type                                 | Description             |
-| :------- | :----------------------------------- | :---------------------- |
-| `cache`  | Map                                  | The cache.              |
-| `get`    | Function                             | Internal API.           |
-| `set`    | Function                             | Internal API.           |
-| `load`   | [DataCacheLoad](#type-datacacheload) | Load asynchronous data. |
-| `reset`  | Function                             | Resets the cache.       |
+| Property       | Type                                                 | Description                                                                   |
+| :------------- | :--------------------------------------------------- | :---------------------------------------------------------------------------- |
+| `cache`        | Map                                                  | The cache.                                                                    |
+| `get`          | Function                                             | Internal API.                                                                 |
+| `set`          | Function                                             | Internal API.                                                                 |
+| `subscription` | CreateSubscriptionAPI                                | Internal API.                                                                 |
+| `preload`      | [DataCachePreload](#type-datacachepreload)           | Preload asynchronous data.                                                    |
+| `load`         | [DataCacheLoad](#type-datacacheload)                 | Load asynchronous data.                                                       |
+| `find`         | string \| Function                                   | Find references by key, takes a string or predicate function.                 |
+| `onChange`     | [SubscriptionSubscribe](#type-subscriptionsubscribe) | Called whenever cache is updated. First argument is key of updated reference. |
+| `reset`        | Function                                             | Resets the cache.                                                             |
 
 * * *
 
@@ -119,6 +124,18 @@ Returns cached entry if found, otherwise calls asyncFn and loads data into the c
 | :-------- | :------------------------- | :--------------------------------- |
 | `key`     | [CacheKey](#type-cachekey) | A cache key.                       |
 | `asyncFn` | Function                   | A function that returns a Promise. |
+
+* * *
+
+## type SubscriptionSubscribe
+
+**Type:** Function
+
+| Parameter  | Type     | Description                                  |
+| :--------- | :------- | :------------------------------------------- |
+| `callback` | Function | A function to call whenever an event occurs. |
+
+**Returns:** Function — Unsubscribe.
 
 * * *
 
