@@ -50,10 +50,10 @@ React hook that returns a cache reference and load function for a specified cach
 
 Access preloaded data, suspends if data is unavailable.
 
-| Parameter   | Type                                                     | Description                |
-| :---------- | :------------------------------------------------------- | :------------------------- |
-| `reference` | CacheReference                                           | A cache reference.         |
-| `options`   | [UsePreloadedDataOptions](#type-usepreloadeddataoptions) | User configurable options. |
+| Parameter     | Type                                                     | Description                |
+| :------------ | :------------------------------------------------------- | :------------------------- |
+| `reference`   | CacheReference                                           | A cache reference.         |
+| `userOptions` | [UsePreloadedDataOptions](#type-usepreloadeddataoptions) | User configurable options. |
 
 **Returns:** \* — The cached value
 
@@ -100,12 +100,12 @@ A dataCache object.
 
 Loads data into the cache.
 
-**Type:** function
+**Type:** Function
 
 | Parameter | Type                       | Description                        |
 | :-------- | :------------------------- | :--------------------------------- |
 | `key`     | [CacheKey](#type-cachekey) | A cache key.                       |
-| `asyncFn` | function                   | A function that returns a Promise. |
+| `asyncFn` | Function                   | A function that returns a Promise. |
 
 * * *
 
@@ -113,12 +113,12 @@ Loads data into the cache.
 
 Returns cached entry if found, otherwise calls asyncFn and loads data into the cache.
 
-**Type:** function
+**Type:** Function
 
 | Parameter | Type                       | Description                        |
 | :-------- | :------------------------- | :--------------------------------- |
 | `key`     | [CacheKey](#type-cachekey) | A cache key.                       |
-| `asyncFn` | function                   | A function that returns a Promise. |
+| `asyncFn` | Function                   | A function that returns a Promise. |
 
 * * *
 
@@ -139,11 +139,11 @@ The useDataLoader API.
 
 Loads data into this cache reference.
 
-**Type:** function
+**Type:** Function
 
 | Parameter | Type     | Description                        |
 | :-------- | :------- | :--------------------------------- |
-| `asyncFn` | function | A function that returns a Promise. |
+| `asyncFn` | Function | A function that returns a Promise. |
 
 * * *
 
