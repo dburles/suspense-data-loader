@@ -9,26 +9,26 @@
  * Loads data into the cache.
  * @kind typedef
  * @name DataCacheLoad
- * @type {function}
+ * @type {Function}
  * @param {CacheKey} key A cache key.
- * @param {function} asyncFn A function that returns a Promise.
+ * @param {Function} asyncFn A function that returns a Promise.
  */
 
 /**
  * Returns cached entry if found, otherwise calls asyncFn and loads data into the cache.
  * @kind typedef
  * @name DataCachePreload
- * @type {function}
+ * @type {Function}
  * @param {CacheKey} key A cache key.
- * @param {function} asyncFn A function that returns a Promise.
+ * @param {Function} asyncFn A function that returns a Promise.
  */
 
 /**
  * Loads data into this cache reference.
  * @kind typedef
  * @name UseDataLoaderLoad
- * @type {function}
- * @param {function} asyncFn A function that returns a Promise.
+ * @type {Function}
+ * @param {Function} asyncFn A function that returns a Promise.
  */
 
 /**

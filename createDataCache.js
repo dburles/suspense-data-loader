@@ -34,12 +34,21 @@ export default function createDataCache(userOptions = defaultOptions) {
       }
     },
 
-    preload(key, asyncFn) {
-      return dataCache.get(key) || dataCache.load(key, asyncFn);
+    async preload(key, asyncFn) {
+      return new Promise((resolve) => {
+        if (dataCache.get(key)) {
+          return resolve(dataCache.get(key).value);
+        }
+        dataCache.load(key, asyncFn).then(resolve);
+      });
     },
 
-    load(key, asyncFn) {
-      return dataLoader(key, asyncFn, dataCache);
+    async load(key, asyncFn) {
+      return new Promise((resolve) => {
+        dataLoader(key, asyncFn, dataCache).load((reference) => {
+          resolve(reference.value);
+        });
+      });
     },
 
     reset() {
