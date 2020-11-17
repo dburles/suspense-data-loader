@@ -14,7 +14,7 @@ import { REJECTED, RESOLVED } from './lib/dataLoader.js';
  * @kind function
  * @name usePreloadedData
  * @param {CacheReference} reference A cache reference.
- * @param {UsePreloadedDataOptions} options User configurable options.
+ * @param {UsePreloadedDataOptions} userOptions User configurable options.
  * @throws {Promise|string}
  * @returns {*} The cached value
  */
