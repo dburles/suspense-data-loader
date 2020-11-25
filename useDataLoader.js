@@ -29,7 +29,7 @@ export default function useDataLoader(key) {
   function load(asyncFn) {
     const reference = dataLoader(key, asyncFn, dataCache);
     reference.load();
-    return reference;
+    setReference(reference);
   }
 
   useEffect(() => {
