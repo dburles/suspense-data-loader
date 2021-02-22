@@ -33,7 +33,7 @@ Creates a data cache.
 
 **Returns:** [DataCache](#type-datacache) — A dataCache object.
 
-* * *
+---
 
 ## function useDataLoader
 
@@ -45,7 +45,7 @@ React hook that returns a cache reference and load function for a specified cach
 
 **Returns:** [UseDataLoaderAPI](#type-usedataloaderapi) — The useDataLoader API.
 
-* * *
+---
 
 ## function usePreloadedData
 
@@ -58,7 +58,7 @@ Access preloaded data, suspends if data is unavailable.
 
 **Returns:** \* — The cached value
 
-* * *
+---
 
 ## constant DataCacheContext
 
@@ -71,15 +71,15 @@ A React context.
 | `Provider` | Function | [React context provider component](https://reactjs.org/docs/context#contextprovider). |
 | `Consumer` | Function | [React context consumer component](https://reactjs.org/docs/context#contextconsumer). |
 
-* * *
+---
 
 ## type CacheKey
 
 The cache key.
 
-**Type:** string | Array&lt;string | number>
+**Type:** string | Array\<string | number>
 
-* * *
+---
 
 ## type DataCache
 
@@ -99,7 +99,7 @@ A dataCache object.
 | `onChange`     | [SubscriptionSubscribe](#type-subscriptionsubscribe) | Called whenever cache is updated. First argument is key of updated reference. |
 | `reset`        | Function                                             | Resets the cache.                                                             |
 
-* * *
+---
 
 ## type DataCacheLoad
 
@@ -112,7 +112,7 @@ Loads data into the cache.
 | `key`     | [CacheKey](#type-cachekey) | A cache key.                       |
 | `asyncFn` | Function                   | A function that returns a Promise. |
 
-* * *
+---
 
 ## type DataCachePreload
 
@@ -125,7 +125,7 @@ Returns cached entry if found, otherwise calls asyncFn and loads data into the c
 | `key`     | [CacheKey](#type-cachekey) | A cache key.                       |
 | `asyncFn` | Function                   | A function that returns a Promise. |
 
-* * *
+---
 
 ## type SubscriptionSubscribe
 
@@ -137,7 +137,7 @@ Returns cached entry if found, otherwise calls asyncFn and loads data into the c
 
 **Returns:** Function — Unsubscribe.
 
-* * *
+---
 
 ## type UseDataLoaderAPI
 
@@ -150,7 +150,7 @@ The useDataLoader API.
 | `0`      | CacheReference                               | The cache reference.                 |
 | `1`      | [UseDataLoaderLoad](#type-usedataloaderload) | Loads data for this cache reference. |
 
-* * *
+---
 
 ## type UseDataLoaderLoad
 
@@ -162,7 +162,7 @@ Loads data into this cache reference.
 | :-------- | :------- | :--------------------------------- |
 | `asyncFn` | Function | A function that returns a Promise. |
 
-* * *
+---
 
 ## type UsePreloadedDataOptions
 
