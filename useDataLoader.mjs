@@ -1,7 +1,7 @@
-import { useContext, useEffect, useRef, useState } from 'react';
-import DataCacheContext from './DataCacheContext.js';
-import dataLoader from './lib/dataLoader.js';
-import serializeKey from './lib/serializeKey.js';
+import { useContext, useEffect, useRef, useState } from "react";
+import DataCacheContext from "./DataCacheContext.mjs";
+import dataLoader from "./lib/dataLoader.mjs";
+import serializeKey from "./lib/serializeKey.mjs";
 
 /**
  * The useDataLoader API.

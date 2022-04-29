@@ -1,6 +1,6 @@
-import createSubscription from './lib/createSubscription.js';
-import dataLoader from './lib/dataLoader.js';
-import serializeKey from './lib/serializeKey.js';
+import createSubscription from "./lib/createSubscription.mjs";
+import dataLoader from "./lib/dataLoader.mjs";
+import serializeKey from "./lib/serializeKey.mjs";
 
 const defaultOptions = { maxEntries: 10000 };
 
@@ -52,7 +52,7 @@ export default function createDataCache(userOptions = defaultOptions) {
     find(predicateOrKey) {
       for (const reference of dataCache.values()) {
         if (
-          (typeof predicateOrKey === 'function' &&
+          (typeof predicateOrKey === "function" &&
             predicateOrKey(reference.key)) ||
           predicateOrKey === reference.key
         ) {

@@ -1,5 +1,5 @@
-import { useEffect, useReducer, useState } from 'react';
-import { REJECTED, RESOLVED } from './lib/dataLoader.js';
+import { useEffect, useReducer, useState } from "react";
+import { REJECTED, RESOLVED } from "./lib/dataLoader.mjs";
 
 /**
  * usePreloadedData Options
