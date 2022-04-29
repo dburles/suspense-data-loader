@@ -33,7 +33,7 @@ export default function createDataCache(userOptions = defaultOptions) {
         }
       }
     },
-    async preload(key, asyncFn) {
+    preload(key, asyncFn) {
       return new Promise((resolve) => {
         if (dataCache.get(key)) {
           return resolve(dataCache.get(key).value);
@@ -41,7 +41,7 @@ export default function createDataCache(userOptions = defaultOptions) {
         dataCache.load(key, asyncFn).then(resolve);
       });
     },
-    async load(key, asyncFn) {
+    load(key, asyncFn) {
       return new Promise((resolve) => {
         dataLoader(key, asyncFn, dataCache).load((reference) => {
           resolve(reference.value);
