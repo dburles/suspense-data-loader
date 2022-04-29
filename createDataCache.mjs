@@ -1,6 +1,5 @@
 import createSubscription from "./createSubscription.mjs";
 import dataLoader from "./dataLoader.mjs";
-import serializeKey from "./serializeKey.mjs";
 
 const defaultOptions = { maxEntries: 10000 };
 
@@ -23,10 +22,10 @@ export default function createDataCache(userOptions = defaultOptions) {
   const dataCache = {
     cache: new Map(),
     get(key) {
-      return dataCache.cache.get(serializeKey(key));
+      return dataCache.cache.get(key);
     },
     set(key, reference) {
-      dataCache.cache.set(serializeKey(key), reference);
+      dataCache.cache.set(key, reference);
       if (dataCache.cache.size > options.maxEntries) {
         for (const [key] of dataCache.cache) {
           dataCache.cache.delete(key);
