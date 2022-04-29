@@ -1,0 +1,56 @@
+{
+  "name": "suspense-data-loader",
+  "version": "1.0.0",
+  "description": "Experimental. Does not support SSR.",
+  "author": "David Burles",
+  "license": "MIT",
+  "repository": "github:dburles/suspense-data-loader",
+  "bugs": "https://github.com/dburles/suspense-data-loader/issues",
+  "homepage": "https://github.com/dburles/suspense-data-loader#readme",
+  "keywords": [
+    "data",
+    "loading",
+    "suspense",
+    "react",
+    "react-hooks",
+    "fetch"
+  ],
+  "files": [
+    "createDataCache.mjs",
+    "createSubscription.mjs",
+    "DataCacheContext.mjs",
+    "dataLoader.mjs",
+    "serializeKey.mjs",
+    "useDataLoader.mjs",
+    "usePreloadedData.mjs"
+  ],
+  "exports": {
+    "./createDataCache.mjs": "./createDataCache.mjs",
+    "./DataCacheContext.mjs": "./DataCacheContext.mjs",
+    "./useDataLoader.mjs": "./useDataLoader.mjs",
+    "./usePreloadedData.mjs": "./usePreloadedData.mjs"
+  },
+  "engines": {
+    "node": ">= 16.0.0"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "prettier": "^2.6.2"
+  },
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "peerDependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "scripts": {
+    "eslint": "eslint .",
+    "prettier": "prettier -c .",
+    "test": "npm run eslint && npm run prettier",
+    "prepublishOnly": "npm test"
+  }
+}

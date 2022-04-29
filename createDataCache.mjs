@@ -1,6 +1,6 @@
-import createSubscription from "./lib/createSubscription.mjs";
-import dataLoader from "./lib/dataLoader.mjs";
-import serializeKey from "./lib/serializeKey.mjs";
+import createSubscription from "./createSubscription.mjs";
+import dataLoader from "./dataLoader.mjs";
+import serializeKey from "./serializeKey.mjs";
 
 const defaultOptions = { maxEntries: 10000 };
 

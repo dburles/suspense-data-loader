@@ -1,7 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import DataCacheContext from "./DataCacheContext.mjs";
-import dataLoader from "./lib/dataLoader.mjs";
-import serializeKey from "./lib/serializeKey.mjs";
+import dataLoader from "./dataLoader.mjs";
 
 /**
  * The useDataLoader API.
@@ -22,7 +21,6 @@ import serializeKey from "./lib/serializeKey.mjs";
 export default function useDataLoader(key) {
   const dataCache = useContext(DataCacheContext);
   const [reference, setReference] = useState(dataCache.get(key));
-  const serializedKey = serializeKey(key);
   const keyRef = useRef(key);
   const loadRef = useRef(load);
 
@@ -36,7 +34,7 @@ export default function useDataLoader(key) {
     keyRef.current = key;
     loadRef.current = load;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [serializedKey]);
+  }, [key]);
 
   return [reference, loadRef.current];
 }
