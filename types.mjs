@@ -68,7 +68,7 @@
  * @prop {Function} onUpdate Subscribe to data events.
  */
 
-export { default as createDataCache } from './createDataCache.js';
-export { default as DataCacheContext } from './DataCacheContext.js';
-export { default as useDataLoader } from './useDataLoader.js';
-export { default as usePreloadedData } from './usePreloadedData.js';
+export { default as createDataCache } from "./createDataCache.js";
+export { default as DataCacheContext } from "./DataCacheContext.js";
+export { default as useDataLoader } from "./useDataLoader.js";
+export { default as usePreloadedData } from "./usePreloadedData.js";
